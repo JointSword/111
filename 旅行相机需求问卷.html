@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c42">
+  <title>旅行相机偏好问卷</title>
+  <style>
+    :root{color-scheme:light;--ink:#172b38;--muted:#536674;--line:rgba(28,57,75,.16);--glass:rgba(248,252,253,.79);--accent:#176c74;--warm:#b4693d;--serif:"Source Han Serif SC","思源宋体","Noto Serif SC","Songti SC",serif;--sans:"Microsoft YaHei UI","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}html{min-height:100%;scroll-behavior:smooth}body{min-height:100vh;margin:0;color:var(--ink);font-family:var(--serif);background:#13506a url("IA2A5307.jpg") center 40%/cover fixed no-repeat}body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,31,47,.31),rgba(10,36,52,.48))}button{font:inherit}.page{position:relative;z-index:1;width:min(100% - 32px,1000px);margin:0 auto;padding:42px 0 72px}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:16px;color:rgba(255,255,255,.9);font:12px/1.5 var(--sans);letter-spacing:.08em;text-shadow:0 1px 12px rgba(0,0,0,.4)}.topline-mark{display:inline-flex;align-items:center;gap:9px}.topline-mark:before{content:"";width:24px;height:1px;background:#d7b28a}.hero{max-width:700px;margin:48px 0 26px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.44)}.eyebrow{margin:0 0 12px;color:#d6e7e7;font:12px/1.5 var(--sans);letter-spacing:.14em}h1{margin:0;font-size:clamp(35px,6vw,58px);font-weight:500;line-height:1.16}.hero-copy{max-width:620px;margin:16px 0 0;color:rgba(255,255,255,.94);font-size:16px;line-height:1.9}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:start;gap:18px}.form-panel,.score-panel{border:1px solid rgba(255,255,255,.58);background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(125%);backdrop-filter:blur(20px) saturate(125%);box-shadow:0 20px 64px rgba(5,26,39,.22)}.form-panel{padding:22px;border-radius:10px}.progress-wrap{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;margin:0 0 8px}.progress-track{height:4px;overflow:hidden;background:rgba(23,43,56,.12)}.progress-fill{width:0;height:100%;background:var(--accent);transition:width .25s ease}.progress-label{color:var(--muted);font:12px var(--sans);white-space:nowrap}.budget-note{margin:17px 0 22px;padding:13px 15px;border-left:2px solid var(--warm);background:rgba(255,255,255,.48);color:#435865;font-size:13px;line-height:1.75}
+    .quiz-section{display:none}.quiz-section.active{display:block;animation:page-in .22s ease both}@keyframes page-in{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}.section-label{display:grid;gap:6px;margin:0 0 8px;padding:15px 0 12px;border-bottom:1px solid var(--line);color:var(--accent);font:11px var(--sans);letter-spacing:.12em}.section-label span{color:var(--muted);font:12px/1.7 var(--sans);letter-spacing:0}.question{min-width:0;margin:0;padding:19px 0 21px;border:0;border-top:1px solid rgba(28,57,75,.1)}.question legend{display:flex;align-items:baseline;gap:12px;width:100%;padding:0 0 12px;font-size:18px;font-weight:600;line-height:1.55}.q-number{color:var(--accent);font:12px var(--sans);letter-spacing:.08em}.q-sub{display:block;margin:-5px 0 13px 34px;color:var(--muted);font:12px/1.7 var(--sans)}.options{display:grid;gap:8px}.option{position:relative;display:block;cursor:pointer}.option input{position:absolute;width:1px;height:1px;opacity:0}.option-body{display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:11px;min-height:52px;padding:12px 13px;border:1px solid rgba(40,67,82,.14);border-radius:5px;background:rgba(255,255,255,.54);transition:background .16s ease,border-color .16s ease,box-shadow .16s ease}.option:hover .option-body{border-color:rgba(23,108,116,.48);background:rgba(255,255,255,.83)}.option input:focus-visible+.option-body{outline:3px solid rgba(23,108,116,.32);outline-offset:2px}.option input:checked+.option-body{border-color:var(--accent);background:rgba(220,239,238,.92);box-shadow:inset 3px 0 0 var(--accent)}.radio{width:17px;height:17px;margin-top:2px;border:1px solid #81929b;border-radius:50%;background:#fff}.option input:checked+.option-body .radio{border:5px solid var(--accent)}.option-copy{font-size:14px;line-height:1.65}.tag{align-self:center;color:#71828c;font:11px var(--sans);text-align:right;white-space:nowrap}
+    .page-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding-top:16px;border-top:1px solid var(--line)}.page-nav .btn[hidden],.actions[hidden]{display:none}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-top:18px;border-top:1px solid var(--line)}.btn{min-height:42px;padding:9px 17px;border:1px solid var(--accent);border-radius:4px;cursor:pointer;font:13px var(--sans);transition:transform .15s ease,background .15s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#0f5e66}.btn-quiet{border-color:transparent;background:transparent;color:var(--muted)}.status{min-height:20px;margin-left:auto;color:var(--muted);font:12px/1.6 var(--sans)}
+    .score-panel{position:sticky;top:18px;padding:19px;border-radius:8px}.score-title{margin:0 0 5px;font-size:16px;font-weight:600}.score-hint{margin:0 0 16px;color:var(--muted);font:11px/1.6 var(--sans)}.score-row{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:11px 0;border-top:1px solid var(--line)}.score-name{font-size:13px}.score-value{color:var(--accent);font:13px var(--sans);font-variant-numeric:tabular-nums}.score-meter{grid-column:1/-1;height:3px;background:rgba(23,43,56,.12)}.score-meter span{display:block;width:0;height:100%;background:var(--accent);transition:width .25s ease}.result{display:none;margin-top:14px;padding:14px;border:1px solid rgba(23,108,116,.28);background:rgba(220,239,238,.78)}.result.visible{display:block}.result-kicker{margin:0 0 6px;color:var(--accent);font:11px var(--sans);letter-spacing:.06em}.result h2{margin:0 0 8px;font-size:17px;font-weight:600;line-height:1.5}.result p{margin:0;color:#435865;font-size:12px;line-height:1.75}.result-block{margin-top:12px;padding-top:10px;border-top:1px solid rgba(23,108,116,.18)}.result-block strong{display:block;margin-bottom:4px;color:#244751;font:11px var(--sans)}.result-link{display:inline-block;margin-top:11px;color:#105d64;font:12px var(--sans);text-decoration-thickness:1px;text-underline-offset:3px}.footnote{margin:18px 2px 0;color:rgba(255,255,255,.9);font:11px/1.8 var(--sans);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+    @media(max-width:780px){.page{width:min(100% - 22px,620px);padding-top:22px}body{background-position:52% center;background-attachment:scroll}.hero{margin-top:35px}.hero-copy{font-size:14px}.layout{grid-template-columns:1fr}.score-panel{position:static;grid-row:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}.score-title,.score-hint,.result{grid-column:1/-1}.form-panel{padding:16px}}
+    @media(max-width:420px){.topline{font-size:10px}.hero{margin-top:27px}h1{font-size:36px}.form-panel{padding:13px}.question legend{font-size:17px}.option-body{grid-template-columns:18px minmax(0,1fr) auto;gap:8px;padding:11px 9px}.option-copy{font-size:13px}.tag{font-size:10px}.status{flex-basis:100%;margin-left:0}.score-panel{padding:15px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topline"><span class="topline-mark">TRAVEL CAMERA FINDER</span><span>给两个人的旅行记录</span></div>
+    <header class="hero">
+      <p class="eyebrow">从你们想拍的画面开始</p>
+      <h1>你们想要怎样的<br>旅行相机？</h1>
+      <p class="hero-copy">不用先懂相机。想象一下旅行中的真实场景，选出你更愿意做的事。问卷会帮你们发现：想轻松记录、愿意慢慢学习，还是希望照片和器材都能继续进阶。</p>
+    </header>
+    <div class="layout">
+      <form class="form-panel" id="quiz">
+        <div class="progress-wrap"><div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress"></div></div><span class="progress-label" id="progress-label">模块 1 / 6 · 已答 0 / 29</span></div>
+        <div class="budget-note">一题选一个最像自己的答案。预算按“机身 + 一支常用镜头”考虑；推荐也会结合镜头重量、换镜意愿和拍摄习惯。</div>
+        <div id="questions"></div>
+        <div class="page-nav"><button class="btn btn-quiet" type="button" id="previous-page" hidden>上一步</button><button class="btn btn-primary" type="button" id="next-page">下一步</button><button class="btn btn-quiet" type="reset">重新填写</button></div>
+        <div class="actions" id="final-actions" hidden><button class="btn btn-primary" type="button" id="show-result">查看推荐方向</button><span class="status" id="status" role="status" aria-live="polite">选项没有对错，按真实习惯回答即可。</span></div>
+      </form>
+      <aside class="score-panel" aria-label="实时偏好得分">
+        <h2 class="score-title">偏好画像</h2><p class="score-hint">选择后实时更新。预算和具体偏好会共同决定推荐。</p>
+        <div class="score-row"><span class="score-name">轻装随拍</span><span class="score-value" id="score-light">0</span><div class="score-meter"><span id="meter-light"></span></div></div>
+        <div class="score-row"><span class="score-name">直出省心</span><span class="score-value" id="score-jpeg">0</span><div class="score-meter"><span id="meter-jpeg"></span></div></div>
+        <div class="score-row"><span class="score-name">认真学习</span><span class="score-value" id="score-learn">0</span><div class="score-meter"><span id="meter-learn"></span></div></div>
+        <div class="score-row"><span class="score-name">画质与系统</span><span class="score-value" id="score-quality">0</span><div class="score-meter"><span id="meter-quality"></span></div></div>
+        <div class="score-row"><span class="score-name">一镜到底</span><span class="score-value" id="score-simple">0</span><div class="score-meter"><span id="meter-simple"></span></div></div>
+        <section class="result" id="result" aria-live="polite">
+          <p class="result-kicker">你们的推荐方向</p><h2 id="result-title"></h2><p id="result-copy"></p>
+          <div class="result-block"><strong>镜头与携带方式</strong><p id="result-lens"></p></div>
+          <div class="result-block"><strong>这份答案透露的拍摄习惯</strong><p id="result-habit"></p></div>
+          <a class="result-link" href="相机购买推荐方案.md">查看完整器材方案 →</a>
+        </section>
+      </aside>
+    </div>
+    <p class="footnote">分数是整理偏好的工具，不是摄影水平测验。购买前再按当时的新机、二手价格和镜头卡口核对整套预算。</p>
+  </main>
+  <script>
+    const sections = [
+      {title:'01 · 先想象你们会怎样使用',sub:'从真实的一天开始，不需要懂摄影术语。',questions:[
+        {id:'budget',title:'买相机和第一支镜头，你们大概愿意花多少？',options:[['under3','3000 元以内，先把投入控制住','受限'],['3to5','3000–5000 元，想买一套够用的','入门'],['5to8','5000–8000 元，愿意为镜头或更好机身加一点','中档'],['8to12','8000–12000 元，希望用得久、少走弯路','进阶'],['over12','12000 元以上，按长期使用感受来选','充足']]},
+        {id:'frequency',title:'一年里，你们觉得自己会带相机出门多少次？',options:[['few','一年几次旅行，平时大多用手机','偶尔'],['monthly','每个月会有几次出游或聚会','常用'],['weekly','周末经常出门，也会记录日常','频繁'],['often','希望相机成为日常随身物品','随身']]},
+        {id:'scene',title:'想象一次周末旅行，最想留下哪些画面？',sub:'选最有吸引力的一种。',options:[['city','街道、店铺、车站和旅途里遇到的小事','街拍'],['couple','两个人在景点的合照、半身照和自然互动','合照'],['view','山海、城市天际线、建筑和空间全貌','风景'],['detail','咖啡、食物、花、纪念品等细节','静物']]},
+        {id:'resultlook',title:'旅行结束后，你最希望翻到什么样的照片？',options:[['memory','真实自然，能想起当时的气氛就好','记录'],['colorful','颜色舒服、有一点个人风格，直接分享','色彩'],['portrait','人物突出、背景柔和，像认真拍的人像','人像'],['detail','画面干净细致，放大看也经得起看','细节']]},
+        {id:'learning',title:'如果有人教你一个简单技巧，你会怎么想？',options:[['casual','我想轻松拍，不太想学参数','随手'],['fewtips','构图、曝光学一点就够了','入门'],['curious','挺有兴趣，愿意边玩边学','探索'],['serious','想认真学拍摄和后期，逐渐形成自己的风格','进阶']]},
+        {id:'manual',title:'拍照时你更喜欢哪种节奏？',options:[['auto','按快门就好，相机自动处理越多越好','自动'],['guided','平时自动，遇到喜欢的画面再调整','混合'],['settings','愿意自己调亮暗、虚化和颜色','手动'],['practice','可以反复试设置，研究为什么这张更好','学习']]}
+      ]},
+      {title:'02 · 你喜欢照片是什么感觉',sub:'品牌色彩只是起点；拍摄和修图方式也会影响适合的系统。',questions:[
+        {id:'color',title:'哪种颜色处理方式更接近你的喜好？',sub:'不同机身也能调整，这里问的是你更喜欢从哪种起点开始。',options:[['fuji','喜欢富士胶片模拟：机内就有明显风格，拍完想直接分享','富士'],['canon','喜欢佳能肤色和讨喜的直出，希望少调颜色','佳能'],['sony','喜欢索尼 RAW 后期空间大，愿意自己把颜色调成想要的样子','索尼'],['nikon','喜欢尼康直出自然、颜色准确，尽量接近眼睛看到的感觉','尼康'],['neutral','没有特别偏好的品牌色彩，整体画面和镜头更重要','无偏好']]},
+        {id:'editing',title:'一趟旅行拍几十张照片后，你愿意花多少时间整理？',options:[['zero','基本不想修，挑几张就发','不修'],['phoneedit','手机里简单调亮、裁切或套滤镜','轻修'],['selective','只精修少量最喜欢的照片','挑修'],['rawedit','愿意在电脑上调 RAW，追求自己想要的效果','后期']]},
+        {id:'skin',title:'拍两个人的合照时，你最在意什么？',options:[['natural','脸色自然，不要过度磨皮和浓艳','自然'],['bright','希望肤色明亮讨喜，直出就顺眼','讨喜'],['mood','希望色调有氛围，回去可以慢慢调整','氛围'],['consistent','不同光线下颜色尽量稳定、准确','稳定']]},
+        {id:'output',title:'这些照片主要会在哪里看？',options:[['phone','手机和社交平台，偶尔发给家人','手机'],['album','会做旅行相册或打印一些照片','打印'],['crop','经常需要大幅裁切，或想保留很多细节','裁切'],['all','手机分享和大屏回看都希望效果好','都要']]}
+      ]},
+      {title:'03 · 镜头重量和换镜头习惯',sub:'镜头越多不一定越方便。旅行中停下来换镜头，会不会打断你们的节奏？',questions:[
+        {id:'weight',title:'背一天相机时，下面哪种感觉最能接受？',options:[['tiny','轻巧优先，走一天肩膀也别累','轻'],['balanced','机身和镜头有存在感可以，但不想太笨重','适中'],['large','大一点没关系，握得舒服、画面好更重要','画质'],['unknown','没背过相机，不确定；希望先从轻便组合开始','未体验']]},
+        {id:'balance',title:'如果机身小、镜头却很长很重，你会怎么想？',options:[['uncomfortable','看着头重脚轻，拍一会儿就累，宁愿换轻镜头','不平衡'],['okay','能接受一些，前提是照片提升明显','可接受'],['grip','希望机身手柄大一些，整套拿起来稳','大手柄'],['unknown','还没体验过，最好到店里实际拿一拿','试握']]},
+        {id:'swap',title:'走到一个新地方，发现另一支镜头更合适，你愿意停下来换吗？',options:[['never','不愿意，停下找镜头和收纳很麻烦','不换'],['rare','偶尔可以，最好一趟只换一两次','少换'],['sometimes','拍到想要的画面时可以换几次','能换'],['happy','换镜头也是拍摄乐趣之一','常换']]},
+        {id:'onezoom',title:'如果一支镜头稍微牺牲一点画质，但一路不用换镜头，你会？',options:[['chooseone','很愿意，一镜走天下更轻松','一镜'],['depends','看重量和画质差多少','权衡'],['qualityfirst','宁愿多带一支，关键画面更重要','画质'],['enjoykit','喜欢根据场景选镜头，不介意整理器材','多镜']]},
+        {id:'miss',title:'大家正在往前走，突然出现一个想拍的画面，你更希望？',options:[['ready','相机一直能拍，不想先翻包换镜头','随时拍'],['standard','常用焦段够用，偶尔错过长焦或超广角也行','常用'],['switch','停下来换镜头也值得，想把画面拍到位','换镜'],['phonebackup','手机补超广角，主相机负责最重要的画面','手机补位']]},
+        {id:'bag',title:'旅行包里，你愿意给相机留多少空间？',options:[['pocket','尽量少占空间，能和随身物品一起装','很少'],['small','一个小相机包或包内隔层','一些'],['dedicated','可以背专门的摄影包','专门'],['partnershare','两个人分担，器材可以多一点','分担']]}
+      ]},
+      {title:'04 · 你们通常会拍什么',sub:'没有标准答案。选出最接近的场景，推荐会据此调整镜头和机身。',questions:[
+        {id:'wide',title:'拍大建筑或室内时，空间太窄，手机超广角拍出来变形很明显，你会？',options:[['phone','偶尔遇到，手机能记录就可以','低频'],['stepback','希望相机广一点，尽量少靠手机','常用'],['dedicated','会专门拍建筑、室内和大场景','重要'],['care','更喜欢自然透视，不追求特别广的视角','普通广角']]},
+        {id:'portrait',title:'给另一半拍照，你最想要哪一种效果？',options:[['together','两个人都拍进去，背景地点也看得清','合照'],['casualportrait','人物清楚好看，背景稍微柔和','自然人像'],['strongblur','背景明显虚化，人物像从环境里跳出来','虚化'],['candid','抓到自然表情和互动，不想摆太久姿势','抓拍']]},
+        {id:'subjects',title:'你们主要会拍谁或什么？',options:[['static','建筑、风景、食物和摆好姿势的人','静物'],['people','朋友、情侣合照和旅行人像','人物'],['pets','宠物、小朋友或动作比较快的人','运动'],['mix','什么都有，没法提前知道','混合']]},
+        {id:'night',title:'傍晚逛街或室内吃饭时，你希望怎么拍？',options:[['flashless','尽量直接拍，不想开闪光灯也不想调设置','随手'],['steady','可以找亮一点的位置，拍稳一点','慢拍'],['brightlens','希望室内也能拍得亮，人物背景有层次','大光圈'],['learnnight','愿意练习夜景曝光和后期','夜景']]},
+        {id:'zoom',title:'旅行中你会不会经常拍远处的东西？',options:[['rare','很少，走近或手机拍就好','少'],['some','偶尔拍建筑细节、舞台或远处风景','偶尔'],['often','经常拍远处人物、动物或活动','常用'],['notknow','还不确定，先买标准变焦再看','待定']]},
+        {id:'photochoice',title:'朋友说“帮我拍几张”，你通常会怎么拍？',options:[['quick','站好、看镜头，拍完继续玩','快拍'],['location','找个好背景，让人物和地点都好看','环境人像'],['direct','愿意调整位置、光线和姿势，拍到满意为止','认真拍'],['shy','不太想一直举着相机，手机更自然','手机']]}
+      ]},
+      {title:'05 · 取景与机身感觉',sub:'用生活中的体验来判断，不需要记住相机术语。',questions:[
+        {id:'sun',title:'大太阳下看手机屏幕看不清时，你最希望相机有什么？',sub:'电子取景器 EVF 就像机身上的小屏幕，眼睛贴上去能遮住阳光，看清画面再拍；光学取景器则像单反直接透过镜头看。',options:[['screen','我习惯看手机屏幕，翻转屏对我更重要','后屏'],['evf','希望眼睛贴上去看，强光下也清楚','电子取景器'],['optical','想直接透过镜头看真实景物','光学取景器'],['unsure','没用过取景器，能在店里体验就好','体验']]},
+        {id:'controls',title:'你更喜欢怎样拿起相机开始拍？',options:[['simple','按钮少一点，自动模式简单可靠','简单'],['touch','触屏操作像手机，菜单清楚','触屏'],['dials','喜欢转拨盘改设置，实体按钮好找','拨盘'],['retro','复古外形和机械操控本身就很有吸引力','复古']]},
+        {id:'screen',title:'自拍合照或低角度拍花时，屏幕怎么动对你有用？',options:[['flip','希望屏幕能翻到前面，也能转到各个角度','侧翻'],['tilt','上下翻折就够了，希望取景更快','上下翻'],['fixed','不太用活动屏，结实简单即可','固定'],['unknown','没特别想过','无所谓']]},
+        {id:'weather',title:'遇到小雨、海边潮气或风沙时，你通常会？',options:[['avoid','收起相机，手机继续拍','谨慎'],['cover','简单遮挡，雨停后继续拍','防护'],['weatherproof','希望机身镜头有防尘防滴结构','防护'],['notfactor','这种天气很少拍，不作为购买重点','低频']]}
+      ]},
+      {title:'06 · 预算、二手和未来打算',sub:'按真实购买习惯回答，不把保修当成唯一判断标准。',questions:[
+        {id:'used',title:'如果同样预算，二手能买到更好的机身或镜头，你们会选？',options:[['new','只买全新，拿到新器材更开心','全新'],['usedifhelp','可以考虑闲鱼二手，有懂行的人帮忙看','可二手'],['used','愿意认真挑个人二手，把预算花在器材本身','二手'],['depends','看价差和器材状态，哪种更值选哪种','比较']]},
+        {id:'future',title:'买完第一套器材后，你们最可能怎么做？',options:[['stop','够用就停，不想再研究镜头','不扩展'],['addportrait','以后可能添一支轻便人像镜头','添定焦'],['tele','可能会想拍远处，再添长焦','添长焦'],['system','如果喜欢上摄影，愿意慢慢搭建系统','升级']]},
+        {id:'decision',title:'下面哪句话最像你们对这次购买的期待？',options:[['easy','“买一套顺手的，旅行开心最重要。”','轻松'],['look','“颜色和外形让我喜欢，我才愿意常带。”','喜欢'],['grow','“希望这次买对系统，以后学起来有空间。”','成长'],['value','“同样的钱要买到尽量好的画质和镜头。”','性价比']]}
+      ]}
+    ];
+    const dimensions=['light','jpeg','learn','quality','simple'];
+    const scores={light:0,jpeg:0,learn:0,quality:0,simple:0};
+    const dimLabels={light:'轻装随拍',jpeg:'直出省心',learn:'认真学习',quality:'画质与系统',simple:'一镜到底'};
+    const scoring={
+      budget:{under3:{simple:2},'3to5':{simple:1},'5to8':{quality:1},'8to12':{quality:2},over12:{quality:2,learn:1}},
+      frequency:{few:{simple:2},monthly:{light:1},weekly:{learn:1},often:{light:2}},
+      scene:{city:{light:1,learn:1},couple:{jpeg:1},view:{quality:1},detail:{learn:1,quality:1}},
+      resultlook:{memory:{simple:1,jpeg:1},colorful:{jpeg:2},portrait:{quality:1},detail:{quality:2,learn:1}},
+      learning:{casual:{simple:2,jpeg:1},fewtips:{simple:1},curious:{learn:1},serious:{learn:3,quality:1}},
+      manual:{auto:{simple:2},guided:{simple:1,learn:1},settings:{learn:2},practice:{learn:3,quality:1}},
+      color:{fuji:{jpeg:3},canon:{jpeg:2},sony:{learn:2,quality:1},nikon:{jpeg:2,quality:1},neutral:{quality:2}},
+      editing:{zero:{simple:2,jpeg:2},phoneedit:{jpeg:1,simple:1},selective:{learn:1,quality:1},rawedit:{learn:3,quality:2}},
+      skin:{natural:{quality:1},bright:{jpeg:2},mood:{learn:2},consistent:{jpeg:1,quality:1}},
+      output:{phone:{simple:1},album:{quality:1},crop:{quality:2},all:{quality:1}},
+      weight:{tiny:{light:3,simple:1},balanced:{light:1},large:{quality:1},unknown:{light:2}},
+      balance:{uncomfortable:{light:3},okay:{quality:1},grip:{quality:1},unknown:{light:1}},
+      swap:{never:{simple:3,light:1},rare:{simple:2},sometimes:{learn:1},happy:{learn:2,quality:1}},
+      onezoom:{chooseone:{simple:3},depends:{simple:1},qualityfirst:{quality:2},enjoykit:{learn:1,quality:1}},
+      miss:{ready:{simple:2},standard:{simple:1},switch:{learn:1,quality:1},phonebackup:{light:1,simple:1}},
+      bag:{pocket:{light:3},small:{light:1},dedicated:{quality:1},partnershare:{quality:1}},
+      wide:{phone:{simple:2},stepback:{quality:1},dedicated:{quality:2,learn:1},care:{simple:1}},
+      portrait:{together:{simple:1},casualportrait:{jpeg:1,quality:1},strongblur:{quality:2},candid:{simple:1,learn:1}},
+      subjects:{static:{simple:1},people:{jpeg:1},pets:{quality:1},mix:{simple:1}},
+      night:{flashless:{simple:2},steady:{simple:1},brightlens:{quality:1},learnnight:{learn:2}},
+      zoom:{rare:{simple:1},some:{quality:1},often:{quality:2},notknow:{simple:1}},
+      photochoice:{quick:{simple:2},location:{jpeg:1},direct:{learn:2},shy:{light:1,simple:1}},
+      sun:{screen:{light:1},evf:{quality:1},optical:{quality:1},unsure:{light:1}},
+      controls:{simple:{simple:2},touch:{simple:1},dials:{learn:1},retro:{jpeg:1,learn:1}},
+      screen:{flip:{light:1},tilt:{quality:1},fixed:{simple:1},unknown:{simple:1}},
+      weather:{avoid:{light:1},cover:{simple:1},weatherproof:{quality:1},notfactor:{simple:1}},
+      used:{new:{simple:1},usedifhelp:{quality:1},used:{quality:2},depends:{quality:1}},
+      future:{stop:{simple:2},addportrait:{quality:1},tele:{quality:1},system:{learn:2,quality:2}},
+      decision:{easy:{simple:2},look:{jpeg:2},grow:{learn:2,quality:1},value:{quality:2}}
+    };
+    const allQuestions=sections.flatMap(section=>section.questions);
+    const questionRoot=document.querySelector('#questions');
+    sections.forEach((section,sectionIndex)=>{
+      const page=document.createElement('section');page.className='quiz-section';page.dataset.section=sectionIndex;
+      const heading=document.createElement('div');heading.className='section-label';heading.textContent=section.title;
+      const note=document.createElement('span');note.textContent=section.sub;heading.append(note);page.append(heading);
+      section.questions.forEach(q=>{
+        const field=document.createElement('fieldset');field.className='question';field.dataset.question=q.id;
+        const legend=document.createElement('legend');const n=document.createElement('span');n.className='q-number';n.textContent=String(allQuestions.indexOf(q)+1).padStart(2,'0');legend.append(n,document.createTextNode(q.title));field.append(legend);
+        if(q.sub){const sub=document.createElement('span');sub.className='q-sub';sub.textContent=q.sub;field.append(sub)}
+        const options=document.createElement('div');options.className='options';
+        q.options.forEach(([value,label,tag])=>{
+          const item=document.createElement('label');item.className='option';
+          const input=document.createElement('input');input.type='radio';input.name=q.id;input.value=value;
+          const body=document.createElement('span');body.className='option-body';
+          const radio=document.createElement('span');radio.className='radio';
+          const copy=document.createElement('span');copy.className='option-copy';copy.textContent=label;
+          const badge=document.createElement('span');badge.className='tag';badge.textContent=tag;
+          body.append(radio,copy,badge);item.append(input,body);options.append(item);
+        });
+        field.append(options);page.append(field);
+      });
+      questionRoot.append(page);
+    });
+    const form=document.querySelector('#quiz');
+    let currentSection=0;
+    function renderSection(){
+      document.querySelectorAll('.quiz-section').forEach((page,index)=>page.classList.toggle('active',index===currentSection));
+      document.querySelector('#previous-page').hidden=currentSection===0;
+      document.querySelector('#next-page').hidden=currentSection===sections.length-1;
+      document.querySelector('#final-actions').hidden=currentSection!==sections.length-1;
+      document.querySelector('#progress-label').textContent=`模块 ${currentSection+1} / ${sections.length} · 已答 ${Object.values(answers()).filter(Boolean).length} / ${allQuestions.length}`;
+      document.querySelector('#status').textContent=`第 ${currentSection+1} 部分，共 ${sections.length} 部分。`;
+    }
+    function answers(){return Object.fromEntries(allQuestions.map(q=>[q.id,form.querySelector(`input[name="${q.id}"]:checked`)?.value||null]))}
+    function update(){
+      Object.keys(scores).forEach(k=>scores[k]=0);const a=answers();
+      Object.entries(a).forEach(([id,value])=>{if(!value)return;Object.entries(scoring[id]?.[value]||{}).forEach(([k,v])=>scores[k]+=v)});
+      const high=Math.max(1,...Object.values(scores));dimensions.forEach(k=>{document.querySelector(`#score-${k}`).textContent=scores[k];document.querySelector(`#meter-${k}`).style.width=`${scores[k]/high*100}%`});
+      const done=Object.values(a).filter(Boolean).length;document.querySelector('#progress').style.width=`${done/allQuestions.length*100}%`;document.querySelector('#progress-label').textContent=`模块 ${currentSection+1} / ${sections.length} · 已答 ${done} / ${allQuestions.length}`;document.querySelector('#result').classList.remove('visible');
+      document.querySelector('#status').textContent=`第 ${currentSection+1} 部分，共 ${sections.length} 部分。`;
+    }
+    function recommend(a){
+      const budget=a.budget;const budgetBand={'under3':'3000 元以内','3to5':'3000–5000 元','5to8':'5000–8000 元','8to12':'8000–12000 元','over12':'12000 元以上'}[budget];
+      const brand=a.color;let systemTitle,systemCopy;
+      if(brand==='fuji'){systemTitle='富士优先：直出风格让你愿意常拍';systemCopy=budget==='under3'?'先看成色好的二手 X-T20/X-T30 配轻便套头；若特别喜欢 X-M5 外形，等二手或促销价格落进预算再考虑。':budget==='3to5'?'比较 X-M5 套头组合与带取景器的二手 X-T30/X-S10。X-M5 没有眼平取景器，建议实际体验；高素质 18-50 可留作后续升级。':'先看 X-M5 或带取景器的 X-S 系列；轻便优先配套头，愿意增加重量和预算再上适马 18-50 F2.8。'}
+      else if(brand==='canon'){systemTitle='佳能优先：操作和肤色直出更合胃口';systemCopy=budget==='under3'?'先比较二手 R50 套机是否能压进预算；不要为凑预算买状态不明的机身。若价格超出，暂缓购买或看更早一代二手佳能无反。':budget==='3to5'?'优先看 R50 + RF-S 18-45 套机，之后再判断是否需要适马 18-50 F2.8。': '先把 R50 放在清单前面。套头更轻省，适马 18-50 F2.8 适合想要更好画质和大光圈的人；购买时核对具体 RF-S 卡口与实际价格。'}
+      else if(brand==='sony'){systemTitle='索尼优先：给后期和系统扩展留空间';systemCopy=budget==='under3'?'看二手 a6000/a6100 一类半幅机身配套头，先体验系统；这一档不要强求全幅。':budget==='3to5'?'比较二手 a6400/a6600 半幅组合，或价格合适的 A7C 机身加标准变焦；务必按整套核价。':budget==='5to8'?'重点比较二手 A7R III/A + 腾龙 28-75 G2 与 A7C + 标准变焦，后者更轻，高像素路线更适合裁切。':'比较 A7C II + 腾龙 28-75 G2；更在意性价比且接受二手时，可看 A7R III/A + 同类标准变焦。'}
+      else if(brand==='nikon'){systemTitle='尼康优先：自然准确的直出路线';systemCopy=budget==='under3'?'先看二手 Nikon DX 单反或较早 Z 系列配轻便套头，并确认整套状态和价格。':budget==='3to5'?'比较二手 Z50/Z fc 与套头的整套价格；预算先留给一支常用镜头。':budget==='5to8'?'可比较二手 Z50 系列半幅与标准变焦，或成色合适的 Z5 全幅组合。':'把 Z5/Z6 系列全幅和适合旅行的标准变焦放入试握清单，核算镜头后再与索尼、佳能整套比较。'}
+      else if(scores.quality>=scores.simple+2&&a.used!=='new'){systemTitle='全幅性价比优先：接受二手，画质余量更大';systemCopy='重点比较二手 Sony A7R III/A + 腾龙 28-75 G2，以及预算合适时的 A7C/A7C II 组合。静态旅行拍摄中，高像素和镜头更值得考虑，追焦规格不必排第一。'}
+      else if(a.used==='new'&&(budget==='8to12'||budget==='over12')){systemTitle='新机长期使用优先';systemCopy='比较 Sony A7C II + 腾龙 28-75 G2、佳能 R6 II + 合适的轻便 RF 标准变焦，以及高阶半幅套装。按整套重量、镜头价格和直出喜好决定。'}
+      else if(a.sun==='optical'){systemTitle='喜欢单反的眼平取景和握持';systemCopy='可以把二手 Canon 6D II + EF 标准变焦放入清单。重量会高于小型无反，最好背上十分钟再决定；二手价格可以为镜头留出空间。'}
+      else{systemTitle='半幅一机一镜：简单、轻便，先把照片拍起来';systemCopy='比较 R50 套头/18-50 与富士 X-M5 套头/18-50。若更重视取景器，选择有 EVF 的机身；若更重视胶片模拟，先体验 X-M5 的后屏取景。'}
+      const lowSwap=['never','rare'].includes(a.swap)||a.onezoom==='chooseone'||a.miss==='ready';
+      const lensCopy=lowSwap?'你对停下来换镜头兴趣不高，先买一支覆盖日常的标准变焦。半幅可看 18-50 或轻便套头；全幅可看 28-75。超广角低频时先用手机补位。':'你愿意为场景停下来换镜头，可以先用标准变焦，再根据照片补轻便定焦或长焦。镜头方案按实际携带重量配，不必一次买齐。';
+      const habits=[];if(scores.learn>=8)habits.push('你有明显的学习兴趣，可以从构图、曝光和少量后期逐步建立拍摄习惯');else if(scores.learn>=4)habits.push('你愿意了解少量技巧，半自动模式加简单后期会很合适');else habits.push('你更希望相机替你处理设置，操作简单和直出好看值得优先');
+      if(scores.simple>=8)habits.push('旅行节奏和少换镜头对你很重要');if(scores.quality>=8)habits.push('你在意裁切、细节或后期空间');if(scores.jpeg>=8)habits.push('机内颜色和拍完就能分享会影响你带不带相机');
+      const title=systemTitle;const copy=`预算档：${budgetBand}。${systemCopy}`;const habit=habits.join('；')+'。';
+      return {title,copy,lens:lensCopy,habit};
+    }
+    function firstMissingInSection(index){return sections[index].questions.find(q=>!answers()[q.id])}
+    form.addEventListener('change',update);
+    document.querySelector('#next-page').addEventListener('click',()=>{const missing=firstMissingInSection(currentSection);if(missing){document.querySelector('#status').textContent='先完成本部分的题目，再继续。';const input=form.querySelector(`input[name="${missing.id}"]`);input.focus({preventScroll:true});return}currentSection=Math.min(currentSection+1,sections.length-1);renderSection();update();document.querySelector('.form-panel').scrollIntoView({behavior:'smooth',block:'start'})});
+    document.querySelector('#previous-page').addEventListener('click',()=>{currentSection=Math.max(0,currentSection-1);renderSection();update();document.querySelector('.form-panel').scrollIntoView({behavior:'smooth',block:'start'})});
+    document.querySelector('#show-result').addEventListener('click',()=>{const missing=firstMissingInSection(currentSection);if(missing){document.querySelector('#status').textContent='先完成本部分的题目，再查看推荐。';form.querySelector(`input[name="${missing.id}"]`).focus({preventScroll:true});return}const a=answers();const r=recommend(a);document.querySelector('#result-title').textContent=r.title;document.querySelector('#result-copy').textContent=r.copy;document.querySelector('#result-lens').textContent=r.lens;document.querySelector('#result-habit').textContent=r.habit;document.querySelector('#result').classList.add('visible');document.querySelector('#status').textContent='推荐已生成。完整器材方案见说明文档。';document.querySelector('#result').scrollIntoView({behavior:'smooth',block:'nearest'})});
+    form.addEventListener('reset',()=>requestAnimationFrame(()=>{currentSection=0;renderSection();update();document.querySelector('#status').textContent='选项没有对错，按真实习惯回答即可。'}));
+    renderSection();update();
+  </script>
+</body>
+</html>
